@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+      <div class="container">
+        <h1 class="inner-heading">Введите текст</h1>
+        
+
+        <form method="post" class="subscription">
+          <div class="subscription-inner">
+            <label class="subscription-label" for="subscription-email">email</label>
+            <input type="text " class="subscription-email" " value="keks@flashnews.ru" required id="subscription-email">
+          </div>
+
+          <button class="button subscription-button" type="submit">Подписаться</button>
+        </form>
+<p class="subscription-message">Тут будет результат</p>
+<script>
+
+let message = document.querySelector('.subscription-message');
+let form = document.querySelector('.subscription');
+let email = document.querySelector('.subscription-email');
+
+form.onsubmit = function(evt) {
+  evt.preventDefault();
+  // Измените значение textContent на следующей строке
+  var output = "";
+  for (var i = 0; i < email.value.length; i++){
+
+    var outputSign = email.value[i];  
+
+    if (outputSign == "-"){
+        output += " ";
+    } else if (outputSign == "_"){
+        output += "я";
+    } else {
+        output += outputSign;
+    };
+    message.textContent = output
+}
+}
+
+
+</script>
+</body>
+</html>
